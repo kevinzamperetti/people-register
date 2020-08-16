@@ -69,11 +69,11 @@ public class PersonServiceImpl implements PersonService {
             throw new PersonDateBirthNotProvidedException("Date of Birth Not Provided.");
         }
         if (isNull(person.getCpf())) {
-            throw new PersonCpfNotProvidedException("Date of Birth Not Provided.");
+            throw new PersonCpfNotProvidedException("CPF Not Provided.");
         }
+        checkEmail(person.getEmail());
         checkDateBirth(person.getDateBirth());
         checkCpf(person);
-        checkEmail(person.getEmail());
     }
 
     private void checkDateBirth(String date) {

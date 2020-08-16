@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class SourceDTO {
 
-    private String url;
+    private String urlBackEnd;
+    private String urlFrontEnd;
 
 }

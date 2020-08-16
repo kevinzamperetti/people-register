@@ -12,7 +12,8 @@ public class SourceServiceImpl implements SourceService {
     @Override
     public SourceDTO listSource() {
         return SourceDTO.builder()
-                .url("https://github.com/kevinzamperetti/people-register")
+                .urlBackEnd("https://github.com/kevinzamperetti/people-register")
+                .urlFrontEnd("https://github.com/kevinzamperetti/people-register-ui")
                 .build();
     }
 }
