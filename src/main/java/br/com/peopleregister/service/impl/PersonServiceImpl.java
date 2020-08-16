@@ -68,10 +68,12 @@ public class PersonServiceImpl implements PersonService {
         if (isNull(person.getDateBirth())) {
             throw new PersonDateBirthNotProvidedException("Date of Birth Not Provided.");
         }
-        if (isNull(person.getCpf())) {
+        if (!hasText(person.getCpf())) {
             throw new PersonCpfNotProvidedException("CPF Not Provided.");
         }
-        checkEmail(person.getEmail());
+        if (hasText(person.getEmail())) {
+            checkEmail(person);
+        }
         checkDateBirth(person.getDateBirth());
         checkCpf(person);
     }
@@ -94,10 +96,17 @@ public class PersonServiceImpl implements PersonService {
                 });
     }
 
-    private void checkEmail(String email) {
-        if (nonNull(email) && !validateEmail(email)) {
+    private void checkEmail(Person person) {
+        if (!validateEmail(person.getEmail())) {
             throw new PersonEmailInvalidException("Invalid Email.");
         }
+
+        repository.findByEmail(person.getEmail())
+                .ifPresent(personDb -> {
+                    if (personDb.getId() != person.getId() || isNull(personDb.getId())) {
+                        throw new PersonEmailAlreadyExistsException("Email Already Exists.");
+                    }
+                });
     }
 
 }

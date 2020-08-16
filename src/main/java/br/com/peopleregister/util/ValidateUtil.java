@@ -14,6 +14,7 @@ public class ValidateUtil {
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
     public static Boolean validateCpf(String cpf) {
+        cpf = cpf.replaceAll("(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})", "$1.$2.$3-$4");
         cpf = cpf.replace(".", "").replace("-", "");
 
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
