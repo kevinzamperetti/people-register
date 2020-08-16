@@ -213,6 +213,21 @@ public class PersonServiceImplTest {
         verify(repository, times(0)).save(returnEdit2);
     }
 
+    @Test
+    public void personSaveSucessfully() {
+        Person person = createPerson();
+        service.save(person);
+        verify(repository, times(1)).save(person);
+    }
+
+    @Test
+    public void personUpdateSucessfully() {
+        Person person = createPerson();
+        doReturn(Optional.of(person)).when(repository).findById(person.getId());
+        service.update(person.getId(), person);
+        verify(repository, times(1)).save(person);
+    }
+
     private Person createPerson() {
         return  Person.builder()
                 .id(1L)
