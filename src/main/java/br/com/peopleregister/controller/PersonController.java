@@ -14,6 +14,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.ACCEPTED;
 import static org.springframework.http.HttpStatus.CREATED;
 
+@CrossOrigin
 @RestController
 @Api(value = "Person")
 @RequestMapping("/api/v1/person")
