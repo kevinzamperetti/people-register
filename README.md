@@ -3,7 +3,7 @@ API de cadastro de Pessoas, com operações de cadastro, alteração, remoção 
 
 API pode ser acessada através de um projeto front-end desenvolvido em ReactJS. Para acessar <a href="https://github.com/kevinzamperetti/people-register-ui" target="_blank">clique aqui</a>.
 
-Para rodar ambos os projetos, na pasta raiz deste projeto possui um docker-compose.yml, basta baixá-lo e executar o comando: **docker-compose up -d** e acessar através de **http://localhost:3000/**
+Para rodar ambos os projetos, na pasta raiz deste projeto possui um docker-compose.yml, basta baixá-lo e executar o comando: **docker-compose up** e acessar através de **http://localhost:3000/**
 
 **Documentação da API através do Swagger. Acessar através da URL abaixo:**
 - http://localhost:8080/swagger-ui.html#/
